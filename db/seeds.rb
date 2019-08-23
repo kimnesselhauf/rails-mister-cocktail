@@ -34,7 +34,7 @@ cocktail_names.uniq.each do |name|
 
   cocktail_ingredients.uniq.each do |ing|
     dose = Dose.create!(
-      description: Faker::Dessert.topping,
+      description: Faker::Measurement.volume,
       ingredient: ing,
       cocktail: cocktail
     )

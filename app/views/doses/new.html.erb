@@ -1,0 +1,26 @@
+<h1>Create your new Ingredient here:</h1>
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <% if @dose.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@dose.errors.count, "error") %> prohibited this dose from being saved:</h2>
+
+      <ul>
+      <% @dose.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+  <br>
+  <%= f.association :ingredient%>
+
+<br>
+  <%= f.submit %>
+<% end %>
+
+<br>
+<%= link_to 'Go back', cocktail_path(@cocktail) %>
+

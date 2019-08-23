@@ -1,6 +1,6 @@
 <h1>Create yournew cocktail here:</h1>
 
-<%= form_for(@cocktails) do |f| %>
+<%= form_for [@cocktails] do |f| %>
   <% if @cocktails.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@cocktails.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
