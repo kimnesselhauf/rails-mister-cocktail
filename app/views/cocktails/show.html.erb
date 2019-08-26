@@ -1,17 +1,22 @@
 <h1><%= @cocktails.name%></h1>
 
+<%= image_tag @article.photo.url(:bright_face) %>
+
 <% @cocktails.doses.each do |dose| %>
+<div class="card"
+  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @article.photo, height: 300, width: 400, crop: :fill %>')">
   <%= dose.ingredient.name %> : <%= dose.description %>
   <%= link_to 'Delete', dose_path(dose), method: :delete %>
   <br>
   <% end %>
-
+</div>
   <br>
 
 <%= link_to 'Back to Cocktails', cocktails_path %>
 
 <br>
-<%= link_to 'Add Ingredients', new_cocktail_dose_path(@cocktails) %>
+<%= link_to 'Add Ingredients', new_cocktail_dose_path(@cocktails)%>
 
 
 
